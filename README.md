@@ -1,15 +1,34 @@
 # k-means-pipline
-### Using k-means pipline library to predict on categorical values
-
+## Using k-means pipline library to predict on categorical values
 ###Requirements
-Spark version 1.5.0 or Higher  
-
-##Running with Spark Shell:  
-```{r, engine='bash', count_lines}
-$ $SPARK_HOME/bin/spark-shell --packages knoldus:k-means-pipeline:0.0.1
+Spark 1.5.0 or Higher
+### How to  
+Include this package in your Spark Applications using:
+#### spark-shell, pyspark, or spark-submit
+<pre>> $SPARK_HOME/bin/spark-shell --packages knoldus:k-means-pipeline:0.0.1</pre>
+### sbt
+<pre>resolvers += "Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven"
+libraryDependencies += "knoldus" % "k-means-pipeline" % "0.0.1"</pre>
+### Maven  
+In your pom.xml, add:  
+```xml
+<dependencies>
+  <!-- list of dependencies -->
+  <dependency>
+    <groupId>knoldus</groupId>
+    <artifactId>k-means-pipeline</artifactId>
+    <version>0.0.1</version>
+  </dependency>
+</dependencies>
+<repositories>
+  <!-- list of other repositories -->
+  <repository>
+    <id>SparkPackagesRepo</id>
+    <url>http://dl.bintray.com/spark-packages/maven</url>
+  </repository>
+</repositories>
 ```
-###Or  
-To include it with your Spark application, get the jar from [here](http://dl.bintray.com/spark-packages/maven/knoldus/k-means-pipeline/0.0.1/k-means-pipeline-0.0.1.jar)   
+Example Snippet:  
 ```scala
   import com.knoldus.pipeline.KMeansPipeLine
 
@@ -27,3 +46,5 @@ To include it with your Spark application, get the jar from [here](http://dl.bin
   val predictionResult = kMeans.predict(sqlContext,df,categoricalFeatures,numberOfClusters,iterations)
 
 ```
+Issues and bug reports are welcome! 
+
