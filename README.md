@@ -1,6 +1,15 @@
 # k-means-pipline
-## Using k-means pipline library to predict on categorical values
-Include the library jar from here and include it with your spark application. 
+### Using k-means pipline library to predict on categorical values
+
+###Requirements
+Spark version 1.5.0 or Higher  
+
+##Running with Spark Shell:  
+```{r, engine='bash', count_lines}
+$ $SPARK_HOME/bin/spark-shell --packages knoldus:k-means-pipeline:0.0.1
+```
+###Or  
+To include it with your Spark application, get the jar from [here](http://dl.bintray.com/spark-packages/maven/knoldus/k-means-pipeline/0.0.1/k-means-pipeline-0.0.1.jar)   
 ```scala
   import com.knoldus.pipeline.KMeansPipeLine
 
